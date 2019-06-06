@@ -3,8 +3,12 @@ import React from 'react';
 //we are creating a function
 
 const person = (props) => {
-    return <p>I am {props.name} and I am {props.age}</p>
+    (<div>
 
+    return <p>I am {props.name} and I am {props.age}</p>
+    <p>{props.children}</p>
+</div>
+)
 };
 
 
