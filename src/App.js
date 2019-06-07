@@ -31,9 +31,16 @@ class App extends Component {
        <h1>Hi, I am a React app</h1>
        <button onClick={this.switchNameHandler}>Switch Name</button>
    {/* dont add perenthesis after switchNameHandler, it will render immediately */}
-      <Person name={this.state.persons[0].name} age={this.state.persons[0].name} />
-       <Person name={this.state.persons[1].name} age={this.state.persons[1].name} >My Hobbies: Racing</Person>
-       <Person name={this.state.persons[2].name} age={this.state.persons[2].age} />
+      <Person 
+        name={this.state.persons[0].name} 
+        age={this.state.persons[0].name} />
+       <Person 
+        name={this.state.persons[1].name} 
+        age={this.state.persons[1].name} 
+        click= {this.switchNameHandler} >My Hobbies: Racing</Person>
+       <Person 
+        name={this.state.persons[2].name} 
+        age={this.state.persons[2].age} />
        {/* this refers to the class */}
       </div>
     );

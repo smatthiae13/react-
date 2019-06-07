@@ -3,13 +3,14 @@ import React from 'react';
 //we are creating a function
 
 const person = (props) => {
-    (<div>
-
-    return <p>I am {props.name} and I am {props.age}</p>
+    return   (
+        <div>
+             <p onClick={props.click}>I am {props.name} and I am {props.age}</p>
     <p>{props.children}</p>
 </div>
 )
 };
-
+// use as many of these state less - presentational - dumb - pure functional components
+// as possible, makes coding easier
 
 export default person;
