@@ -37,10 +37,20 @@ class App extends Component {
 }
 
   render() {
+const style = {
+  backgroundColor: "white",
+  font: "inherit",
+  border: "1px solid blue",
+  padding: "8px",
+  cursor: "pointer"
+  //these have to have quotes because they are javascript
+};
     return (
       <div className="App">
        <h1>Hi, I am a React app</h1>
-       <button onClick={() => this.switchNameHandler('Maximilian!!')}>Switch Name</button> 
+       <button 
+       style={style} //returns the style variable from above
+       onClick={() => this.switchNameHandler('Maximilian!!')}>Switch Name</button> 
 
    {/* dont add perenthesis after switchNameHandler, it will render immediately */}
       <Person 
