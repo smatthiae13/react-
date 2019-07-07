@@ -44,8 +44,8 @@ class App extends Component {
   };
 
   deletePersonHandler = (personIndex) => {
-    const persons = this.state.persons;      //here we are not assigning a new value to the const perzsons, it is holding a pointer 
-    persons.splice(personIndex, 1);          //here we are just changing the element it is pointing too-
+    const persons = [...this.state.persons];     //this is the more modern approach of slice-spreads out elements in array, that gets added to new array, but dont have old array itself
+    persons.splice(personIndex, 1);          //here we are just changing the element it is pointing too-this line is a bad code idea-causes errors-use slice method
     this.setState({persons: persons});
   }
 
