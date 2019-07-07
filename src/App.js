@@ -16,20 +16,20 @@ class App extends Component {
 //the persons area here is our data source - larger apps would fetch data from a server here
 
 
-  switchNameHandler = newName => {
-    // console.log('Was clicked');
-    // DONT DO THIS this.state.persons[0].name = "Maximillian";
-    this.setState({
-      persons: [
-        { name: newName, age: 31 },
-        { name: "Sam", age: 29 },
-        { name: "Frederica", age: 32 }
-      ],
-      otherState: "some other value",
-      showPersons: false
-    });
-    // this method allows us to update / merge
-  };
+  // switchNameHandler = newName => {
+  //   // console.log('Was clicked');
+  //   // DONT DO THIS this.state.persons[0].name = "Maximillian";
+  //   this.setState({
+  //     persons: [
+  //       { name: newName, age: 31 },
+  //       { name: "Sam", age: 29 },
+  //       { name: "Frederica", age: 32 }
+  //     ],
+  //     otherState: "some other value",
+  //     showPersons: false
+  //   });
+  //   // this method allows us to update / merge
+  // };
 
   // assigned a function to a property
 
@@ -42,6 +42,12 @@ class App extends Component {
       ]
     });
   };
+
+  deletePersonHandler = (personIndex) => {
+    const persons = this.state.persons;      //here we are not assigning a new value to the const perzsons, it is holding a pointer 
+    persons.splice(personIndex, 1);          //here we are just changing the element it is pointing too-
+    this.setState({persons: persons});
+  }
 
   togglePersonsHandler = () => {
     const doesShow = this.state.showPersons;
@@ -68,8 +74,9 @@ class App extends Component {
     if (this.state.showPersons) {
       persons = (
         <div>
-          {this.state.persons.map(person => {
+          {this.state.persons.map((person, index) => {
             return <Person 
+            click={() => this.deletePersonHandler(index)}
             name={person.name} 
             age={person.age} />
           })}
