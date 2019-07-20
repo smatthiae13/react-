@@ -16,29 +16,18 @@ class App extends Component {
 //the persons area here is our data source - larger apps would fetch data from a server here
 
 
-  // switchNameHandler = newName => {
-  //   // console.log('Was clicked');
-  //   // DONT DO THIS this.state.persons[0].name = "Maximillian";
-  //   this.setState({
-  //     persons: [
-  //       { name: newName, age: 31 },
-  //       { name: "Sam", age: 29 },
-  //       { name: "Frederica", age: 32 }
-  //     ],
-  //     otherState: "some other value",
-  //     showPersons: false
-  //   });
-  //   // this method allows us to update / merge
-  // };
 
   // assigned a function to a property
 
-  nameChangedHandler = event => {
+  nameChangedHandler = (event, id )=> {
+
+
+    
     this.setState({
       persons: [
-        { name: "Max", age: 31 },
-        { name: event.target.value, age: 29 },
-        { name: "Frederica", age: 32 }
+        { id: 'asdf', name: "Max", age: 31 },
+        { id: 'zxcv', name: event.target.value, age: 29 },
+        { id: 'wert', name: "Frederica", age: 32 }
       ]
     });
   };
@@ -78,7 +67,9 @@ class App extends Component {
             return <Person 
             click={() => this.deletePersonHandler(index)}
             name={person.name} 
-            age={person.age} />
+            age={person.age} 
+            key={person.id}
+            changed={(event) => this.nameChangedHandler(event, person.id)}/>
           })}
           
         </div>
@@ -109,4 +100,5 @@ export default App;
 
 //remember react is javascript
 
-
+//key property: helps update the list effeciently:
+//it helps keep track of which elements have changed and which didn't, so it only re-renders the one's who have changed
